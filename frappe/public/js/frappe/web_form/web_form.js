@@ -417,6 +417,7 @@ export default class WebForm extends frappe.ui.FieldGroup {
 		// TODO: remove this (used for payments app)
 		if (this.accept_payment && !this.doc.paid) {
 			window.location.href = data;
+            return
 		}
 
 		if (!this.is_new) {
