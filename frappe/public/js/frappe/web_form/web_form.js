@@ -417,7 +417,7 @@ export default class WebForm extends frappe.ui.FieldGroup {
 		// TODO: remove this (used for payments app)
 		if (this.accept_payment && !this.doc.paid) {
 			window.location.href = data;
-            return
+            
 		}
 
 		if (!this.is_new) {
@@ -428,7 +428,7 @@ export default class WebForm extends frappe.ui.FieldGroup {
 		$(".web-form-container").hide();
 		$(".success-page").removeClass("hide");
 
-		if (this.success_url) {
+		if (this.success_url && !this.accept_payment) {
 			frappe.utils.setup_timer(5, 0, $(".time"));
 			setTimeout(() => {
 				window.location.href = this.success_url;
